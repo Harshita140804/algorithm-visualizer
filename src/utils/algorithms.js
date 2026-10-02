@@ -1,19 +1,11 @@
-// ============================================================
-// SLEEP HELPER
-// Pauses execution for a set number of milliseconds so a human
-// can actually see each animation step happen.
-// ============================================================
+
 function sleep(milliseconds) {
   return new Promise((resolve) => {
     setTimeout(resolve, milliseconds);
   });
 }
 
-// ============================================================
-// BUBBLE SORT
-// Repeatedly compares neighboring bars and swaps them if they
-// are in the wrong order, one full pass at a time.
-// ============================================================
+
 export async function runBubbleSort(
   originalArray,
   setArray,
