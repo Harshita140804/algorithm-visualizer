@@ -26,8 +26,7 @@ export async function runBubbleSort(
         workingArray[j] = workingArray[j + 1];
         workingArray[j + 1] = temporaryHolder;
 
-        // Because each bar has a stable "id", Framer Motion will
-        // automatically animate the bars sliding into their new spots.
+       
         setArray([...workingArray]);
         await sleep(delayInMs);
       }
@@ -43,16 +42,7 @@ export async function runBubbleSort(
   setComparingIndices([]);
 }
 
-// ============================================================
-// MERGE SORT (iterative "bottom-up" version — no recursion,
-// just simple loops, so it's easier to trace step by step)
-//
-// The idea: first treat every single bar as a "sorted mini-list
-// of size 1". Then merge neighboring mini-lists of size 1 into
-// sorted lists of size 2. Then merge those into sorted lists of
-// size 4. Keep doubling the list size until the whole array is
-// one single sorted list.
-// ============================================================
+
 export async function runMergeSort(
   originalArray,
   setArray,
@@ -63,8 +53,7 @@ export async function runMergeSort(
   let workingArray = [...originalArray];
   let totalItems = workingArray.length;
 
-  // "width" is the size of the sorted chunks we are currently merging.
-  // It starts at 1 and doubles every pass: 1 -> 2 -> 4 -> 8 -> ...
+
   for (let width = 1; width < totalItems; width = width * 2) {
     // Walk through the array, picking out pairs of chunks to merge
     for (let leftStart = 0; leftStart < totalItems; leftStart = leftStart + width * 2) {
@@ -124,10 +113,8 @@ export async function runMergeSort(
   setComparingIndices([]);
 }
 
-// ============================================================
-// LINEAR SEARCH
-// Checks every bar one by one until it finds the target value.
-// ============================================================
+
+
 export async function runLinearSearch(
   array,
   targetValue,
@@ -153,11 +140,7 @@ export async function runLinearSearch(
   return false;
 }
 
-// ============================================================
-// BINARY SEARCH
-// Only works correctly on a SORTED array. Repeatedly checks the
-// middle bar and narrows the search range in half each time.
-// ============================================================
+
 export async function runBinarySearch(
   array,
   targetValue,
